@@ -3,7 +3,7 @@ WORKDIR /app
 COPY . .
 RUN mvn package -DskipTests
 
-FROM eclipse-temurin:17-jre-noble as package
+FROM eclipse-temurin:17-jre-noble AS package
 WORKDIR /app
 COPY --from=build /app/target/sysfoo-*.jar ./sysfoo.jar
 EXPOSE 8080
